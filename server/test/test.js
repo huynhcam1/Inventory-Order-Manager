@@ -164,7 +164,7 @@ describe('GET /inventories', function () {
 });
 
 describe('POST /inventories', function () {
-	it('Initializing inventories for testing orders', function (done) {
+	it('Initializing inventory 1 for testing orders', function (done) {
 		request(app)
 			.post('/inventories')
 			.send({
@@ -175,7 +175,13 @@ describe('POST /inventories', function () {
 			})
 			.end((err, res) => {
 				res.body.success.should.equal(true); // response came back successfully
+				done();
 			});
+	});
+});
+
+describe('POST /inventories', function () {
+	it('Initializing inventory 2 for testing orders', function (done) {
 		request(app)
 			.post('/inventories')
 			.send({
